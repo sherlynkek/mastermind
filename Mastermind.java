@@ -22,6 +22,7 @@ public class Mastermind {
         
         // Prompt user to input a 4 digit number guesses
         String userInput;
+        boolean userWins = false;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -90,8 +91,26 @@ public class Mastermind {
                 System.out.println("Game over! You've used all your turns");
                 break;
             }
+            
+            /* if (numPo == 4) {
+                System.out.println("You win!");
+                userWins = true;
+            }
+
+            if (userWins) {
+                random = new Random();
+                rand_int1 = random.nextInt(max - min + 1) + min;
+                rand_int2 = random.nextInt(max - min + 1) + min;
+                rand_int3 = random.nextInt(max - min + 1) + min;
+                rand_int4 = random.nextInt(max - min + 1) + min;
+
+                total = String.valueOf(rand_int1) + String.valueOf(rand_int2) + String.valueOf(rand_int3)
+                        + String.valueOf(rand_int4);
+                userWins = false;
+            } */
         }
 
         System.out.println("\nThe number is: " + rand_int1 + rand_int2 + rand_int3 + rand_int4);
+
     }
 }
