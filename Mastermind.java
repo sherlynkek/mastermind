@@ -9,7 +9,7 @@ public class Mastermind {
 
         // Print Instructions
         System.out.println("Welcome to Mastermind! You have 10 guesses, and you will guess 4 number between 1 and 6. \nType 'quit' to exit the program");
-        // int turns = 10;
+        int turns = 10;
 
         // Random 4 digit numbers
         Random random = new Random();
@@ -25,10 +25,11 @@ public class Mastermind {
         // Prompt user to input a 4 digit number guesses
         String userInput;
 
-        while(true) {
+        Scanner scanner = new Scanner(System.in);
+        while(turns > 0) {
 
+            System.out.println("\nYou have " + turns + " guesses left.");
             System.out.println("\nPlease guess your 4 digit number (1-6): ");
-            Scanner scanner = new Scanner(System.in);
             userInput = scanner.nextLine();
 
             if(userInput.equals("quit")) {
@@ -85,8 +86,13 @@ public class Mastermind {
 
             System.out.println("Exact number and position matched: " + numPo);
             System.out.println("Number matched but wrong position: " + num);
+            
+            if (turns == 0) {
+                System.out.println("Game over! You've used all your turns");
+                break;
+            }
         }
-        
+
         System.out.println("\nThe number is: " + rand_int1 + rand_int2 + rand_int3 + rand_int4);
     }
 }
