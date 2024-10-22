@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,7 +7,7 @@ public class Mastermind {
 
         // Print Instructions
         System.out.println("Welcome to Mastermind! You have 10 guesses, and you will guess 4 number between 1 and 6. \nType 'quit' to exit the program");
-        int turns = 10;
+        // int turns = 10;
 
         // Random 4 digit numbers
         Random random = new Random();
@@ -26,7 +24,8 @@ public class Mastermind {
         String userInput;
 
         Scanner scanner = new Scanner(System.in);
-        while(turns > 0) {
+
+        for (int turns = 10; turns > 0; turns--) {
 
             System.out.println("\nYou have " + turns + " guesses left.");
             System.out.println("\nPlease guess your 4 digit number (1-6): ");
