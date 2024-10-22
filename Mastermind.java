@@ -18,44 +18,40 @@ public class Mastermind {
         int rand_int4 = random.nextInt(max - min + 1) + min;
         System.out.println("\nThe number is: " + rand_int1 + rand_int2 + rand_int3 + rand_int4);
 
-        // Prompt user to input a 4 digit number guesses
         int total = Integer.valueOf(String.valueOf(rand_int1) + String.valueOf(rand_int2) + String.valueOf(rand_int3) + String.valueOf(rand_int4));
-        int userInput;
-
-        Scanner scanner = new Scanner(System.in);
         
-        while(true) {
-            System.out.println("\nPlease guess your 4 digit number (1-6): ");
-            userInput = Integer.parseInt(scanner.nextLine());
-            
-            try {
-                if(Integer.toString(userInput).length() != 4) {
-                    throw new IllegalArgumentException("Input must be exactly 4 digits.");
-                }
+        // Prompt user to input a 4 digit number guesses
+        String userInput;
 
-                if (userInput != total) {
-                    System.out.println("Wrong Answer");
+        while(true) {
+
+            System.out.println("\nPlease guess your 4 digit number (1-6): ");
+            Scanner scanner = new Scanner(System.in);
+            userInput = scanner.nextLine();
+
+            if(userInput.equals("quit")) {
+                System.out.println("Exiting program");
+                break;
+            }
+
+            if (!userInput.equals(String.valueOf(total))) {
+                System.out.println("Wrong Answer");
 
                 // To check if the guesses are correct or not
                 for (int i = 0; i < 4; i++) {
                     System.out.println("Position: ");
                 }
-                }
-                else {
-                    System.out.println("You guessed it!");
-                    break;
-                }
             }
-            catch (NumberFormatException e) {
-                System.out.println("Invalid input! Please enter a valid 4-digit number.");
-            } 
-            catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+            else {
+                System.out.println("You guessed it!");
+                break;
             }
-
-        // scanner.close();
+            
 
         }
 
+        // scanner.close();
+
     }
+
 }
