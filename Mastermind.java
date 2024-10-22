@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -6,7 +8,7 @@ public class Mastermind {
     public static void main(String[] args) {
 
         // Print Instructions
-        System.out.println("Welcome to Mastermind! You have 10 guesses, and you will guess 4 number between 1 and 6");
+        System.out.println("Welcome to Mastermind! You have 10 guesses, and you will guess 4 number between 1 and 6. \nType 'quit' to exit the program");
         // int turns = 10;
 
         // Random 4 digit numbers
@@ -18,7 +20,9 @@ public class Mastermind {
         int rand_int4 = random.nextInt(max - min + 1) + min;
         System.out.println("\nThe number is: " + rand_int1 + rand_int2 + rand_int3 + rand_int4);
 
-        int total = Integer.valueOf(String.valueOf(rand_int1) + String.valueOf(rand_int2) + String.valueOf(rand_int3) + String.valueOf(rand_int4));
+        String total = String.valueOf(rand_int1) + String.valueOf(rand_int2) + String.valueOf(rand_int3) + String.valueOf(rand_int4);
+        
+        List<String> gameInputs = new ArrayList<>();
         
         // Prompt user to input a 4 digit number guesses
         String userInput;
@@ -34,13 +38,14 @@ public class Mastermind {
                 break;
             }
 
+            for (int i = 0; i < 4; i++) {
+                if (!((userInput.charAt(i) >= 49) && (userInput.charAt(i) <= 54))) {
+                    System.err.println("Invalid character detected...");
+                    break;
+                }
+            }
             if (!userInput.equals(String.valueOf(total))) {
                 System.out.println("Wrong Answer");
-
-                // To check if the guesses are correct or not
-                for (int i = 0; i < 4; i++) {
-                    System.out.println("Position: ");
-                }
             }
             else {
                 System.out.println("You guessed it!");
@@ -50,6 +55,10 @@ public class Mastermind {
 
         }
 
+        // To check if the guesses are correct or not
+        // for (int i = 0; i < 4; i++) {
+        //    System.out.println("Position: ");
+        // }
         // scanner.close();
 
     }
