@@ -37,16 +37,18 @@ public class Mastermind {
                 System.out.println("Exiting program");
                 break;
             }
-
+            
             for (int i = 0; i < 4; i++) {
                 if (!((userInput.charAt(i) >= 49) && (userInput.charAt(i) <= 54))) {
                     System.err.println("Invalid character detected...");
                     break;
                 }
             }
+
             if (!userInput.equals(String.valueOf(total))) {
                 System.out.println("Wrong Answer");
             }
+
             else {
                 System.out.println("You guessed it!");
                 break;
