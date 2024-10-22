@@ -18,10 +18,9 @@ public class Mastermind {
         int rand_int2 = random.nextInt(max - min + 1) + min;
         int rand_int3 = random.nextInt(max - min + 1) + min;
         int rand_int4 = random.nextInt(max - min + 1) + min;
-        System.out.println("\nThe number is: " + rand_int1 + rand_int2 + rand_int3 + rand_int4);
+        
 
         String total = String.valueOf(rand_int1) + String.valueOf(rand_int2) + String.valueOf(rand_int3) + String.valueOf(rand_int4);
-        
         
         // Prompt user to input a 4 digit number guesses
         String userInput;
@@ -87,5 +86,7 @@ public class Mastermind {
             System.out.println("Exact number and position matched: " + numPo);
             System.out.println("Number matched but wrong position: " + num);
         }
+        
+        System.out.println("\nThe number is: " + rand_int1 + rand_int2 + rand_int3 + rand_int4);
     }
 }
