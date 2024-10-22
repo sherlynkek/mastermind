@@ -54,41 +54,38 @@ public class Mastermind {
             }
 
 
-        // To check if the guesses are correct or not
-        int numPo = 0;
-        int num = 0;
-        String correctAnswer = total;
+            // To check if the guesses are correct or not
+            int numPo = 0;
+            int num = 0;
+            String correctAnswer = total;
 
-        char[] correctAnswerArray = correctAnswer.toCharArray();
-        boolean[] usedInExactMatch = new boolean[4]; // Track digits used in exact matches
-        boolean[] usedInPartialMatch = new boolean[4]; // Track digits used in partial matches
+            char[] correctAnswerArray = correctAnswer.toCharArray();
+            boolean[] usedInExactMatch = new boolean[4]; // Track digits used in exact matches
+            boolean[] usedInPartialMatch = new boolean[4]; // Track digits used in partial matches
 
-        // Check exact matches (number and position)
-        for (int j = 0; j < 4; j++) {
-            if (String.valueOf(userInput.charAt(j)).equals(String.valueOf(total.charAt(j)))) {
-                numPo++;
-                usedInExactMatch[j] = true; // Mark as used in exact match
+            // Check exact matches (number and position)
+            for (int j = 0; j < 4; j++) {
+                if (String.valueOf(userInput.charAt(j)).equals(String.valueOf(total.charAt(j)))) {
+                    numPo++;
+                    usedInExactMatch[j] = true; // Mark as used in exact match
+                }
             }
-        }
 
-        // Second loop: Check number match but wrong position
-        for (int k = 0; k < 4; k++) {
-            if (!usedInExactMatch[k]) {  // Skip already matched exact positions
-                for (int m = 0; m < 4; m++) {
-                    if (!usedInExactMatch[m] && !usedInPartialMatch[m] && userInput.charAt(k) == correctAnswerArray[m]) {
+            // Second loop: Check number match but wrong position
+            for (int k = 0; k < 4; k++) {
+                if (!usedInExactMatch[k]) {  // Skip already matched exact positions
+                    for (int m = 0; m < 4; m++) {
+                        if (!usedInExactMatch[m] && !usedInPartialMatch[m] && userInput.charAt(k) == correctAnswerArray[m]) {
                         num++;
                         usedInPartialMatch[m] = true; // Mark as used in partial match
                         break; // Move to next userInput char after match
+                        }
                     }
                 }
             }
-        }
 
-        System.out.println("Exact number and position matched: " + numPo);
-        System.out.println("Number matched but wrong position: " + num);
+            System.out.println("Exact number and position matched: " + numPo);
+            System.out.println("Number matched but wrong position: " + num);
         }
-        // scanner.close();
-
     }
-
 }
