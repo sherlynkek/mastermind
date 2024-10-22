@@ -22,7 +22,6 @@ public class Mastermind {
 
         String total = String.valueOf(rand_int1) + String.valueOf(rand_int2) + String.valueOf(rand_int3) + String.valueOf(rand_int4);
         
-        List<String> gameInputs = new ArrayList<>();
         
         // Prompt user to input a 4 digit number guesses
         String userInput;
@@ -53,9 +52,7 @@ public class Mastermind {
                 System.out.println("You guessed it!");
                 break;
             }
-            
 
-        
 
         // To check if the guesses are correct or not
         int numPo = 0;
@@ -86,9 +83,9 @@ public class Mastermind {
                 }
             }
         }
-        
-        System.out.println("Exact matches (number and position): " + numPo);
-        System.out.println("Number matches (wrong position): " + num);
+
+        System.out.println("Exact number and position matched: " + numPo);
+        System.out.println("Number matched but wrong position: " + num);
         }
         // scanner.close();
 
